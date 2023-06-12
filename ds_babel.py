@@ -40,3 +40,13 @@ def csv_to_sql(csv_content, data, table):
     con.commit()
 
     con.close()
+
+print(sql_to_csv("all_fault_line.db", "fault_lines"))
+
+with open("fault_lines.csv", newline='') as csvData:
+    print(csvData.read())
+
+with open('list_volcano.csv', 'r') as csv_f:
+    csv_data = StringIO(csv_f.read())
+
+csv_to_sql(csv_data, 'list_volcanos.db', 'volcanos')
